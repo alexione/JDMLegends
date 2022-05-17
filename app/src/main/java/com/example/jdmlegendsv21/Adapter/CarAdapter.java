@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,10 +16,12 @@ import com.example.jdmlegendsv21.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
 
     private List<Car> cars;
+    private CarAdapter.OnItemClickListener listener;
 
     @NonNull
     @Override
@@ -26,7 +29,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
     {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.rv_cars_info, parent, false);
-        return new CarAdapter.ViewHolder(view);
+        return new CarAdapter.ViewHolder(view, listener);
     }
 
     @SuppressLint("SetTextI18n")
@@ -74,21 +77,30 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
         return cars.size();
     }
 
+    public interface OnItemClickListener {
+        void onRemoveClickListener(int position) throws ExecutionException, InterruptedException;
+    }
+
+    public void setOnClickListener(CarAdapter.OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
 
     public CarAdapter(List<Car> cars) {
         this.cars = new ArrayList<>();
         this.cars = cars;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView Brand;
         public TextView Model;
         public TextView Body_type;
         public TextView Year;
         public ImageView Image;
+        public Button removeButton;
 
-            ViewHolder(@NonNull View itemView)
+            ViewHolder(@NonNull View itemView, CarAdapter.OnItemClickListener listener)
             {
                 super(itemView);
                 Brand = itemView.findViewById(R.id.text_car_brand);
@@ -96,6 +108,21 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
                 Body_type = itemView.findViewById(R.id.text_car_bodytype);
                 Year = itemView.findViewById(R.id.text_car_year);
                 Image = itemView.findViewById(R.id.imageViewCar);
+                removeButton = itemView.findViewById(R.id.buttonDeleteCar);
+
+                removeButton.setOnClickListener(v -> {
+                    if (listener != null) {
+                        int pos = getAdapterPosition();
+                        if (pos != RecyclerView.NO_POSITION) {
+                            try {
+                                listener.onRemoveClickListener(pos);
+                            } catch (ExecutionException | InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            cars.remove(pos);
+                        }
+                    }
+                });
             }
         }
 

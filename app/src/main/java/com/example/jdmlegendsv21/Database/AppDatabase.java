@@ -1,6 +1,7 @@
 package com.example.jdmlegendsv21.Database;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -20,4 +21,7 @@ public interface AppDatabase {
 
     @Query("SELECT * FROM car_table")
     List<Car> getCars();
+
+    @Delete
+    void removeCar(Car car);
 }

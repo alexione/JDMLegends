@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.jdmlegendsv21.R;
-import com.example.jdmlegendsv21.databinding.FragmentSearchBinding;
+import com.example.jdmlegendsv21.databinding.FragmentMapBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -19,9 +19,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class SearchFragment extends Fragment implements OnMapReadyCallback {
+public class SearchFragment<FragmentMapBindingBinding> extends Fragment implements OnMapReadyCallback {
 
-    private FragmentSearchBinding binding;
+    private @NonNull FragmentMapBinding binding;
     private GoogleMap tMap;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,7 +39,7 @@ public class SearchFragment extends Fragment implements OnMapReadyCallback {
 
         SearchViewModel searchViewModel = new ViewModelProvider(this).get(SearchViewModel.class);
 
-        binding = FragmentSearchBinding.inflate(inflater, container, false);
+        binding = FragmentMapBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 

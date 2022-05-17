@@ -25,4 +25,8 @@ public class CarsViewModel extends AndroidViewModel {
         return carRepository.getCars();
     }
 
+    public void removeItem(int pos) throws ExecutionException, InterruptedException {
+        carRepository.removeCar(pos);
+    }
+
 }

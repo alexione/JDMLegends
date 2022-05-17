@@ -11,7 +11,7 @@ public class SearchViewModel extends ViewModel {
 
     public SearchViewModel() {
         this.mText = new MutableLiveData<>();
-        mText.setValue("Pulito Fnatastico");
+        mText.setValue("something :)");
     }
 
     public LiveData<String> getText() {

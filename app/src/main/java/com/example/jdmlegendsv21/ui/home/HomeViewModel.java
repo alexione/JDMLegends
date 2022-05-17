@@ -10,7 +10,7 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("The term JDM originally represented cars sold primarily in Japan, but it has come to mean any high-performance Japanese model, whether a new or used car sold exclusively in Japan or in multiple global markets");
     }
 
     public LiveData<String> getText() {

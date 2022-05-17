@@ -49,6 +49,26 @@ public class CarRepository {
         return cars;
     }
 
+    public void removeCar(int pos) throws ExecutionException, InterruptedException {
+        List<Car> list = getCarsFromDB();
+        Car temp = list.get(pos);
+        new RemoveItemAsync(data).execute(temp);
+    }
+
+    public static class RemoveItemAsync extends AsyncTask<Car, Void, Void> {
+        private AppDatabase data;
+
+        private RemoveItemAsync(AppDatabase data) {
+            this.data = data;
+        }
+
+        @Override
+        protected Void doInBackground(Car... cars) {
+            data.removeCar(cars[0]);
+            return null;
+        }
+    }
+
     public static class GetCars extends AsyncTask<Void, Void, List<Car>> {
 
         private AppDatabase data;

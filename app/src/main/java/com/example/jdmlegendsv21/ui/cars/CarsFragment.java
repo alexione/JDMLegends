@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jdmlegendsv21.Adapter.CarAdapter;
 import com.example.jdmlegendsv21.R;
-import com.example.jdmlegendsv21.databinding.FragmentCarsBinding;
 
 import java.util.concurrent.ExecutionException;
 
@@ -22,7 +22,7 @@ public class CarsFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private CarAdapter carAdapter;
-    private FragmentCarsBinding binding;
+
 
    private CarsViewModel carsViewModel;
 
@@ -36,6 +36,12 @@ public class CarsFragment extends Fragment {
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 carAdapter = new CarAdapter(characters);
                 recyclerView.setAdapter(carAdapter);
+                carAdapter.setOnClickListener(position ->
+                {
+                    carsViewModel.removeItem(position);
+                    Toast.makeText(getContext(), "Item removed", Toast.LENGTH_SHORT).show();
+                    carAdapter.notifyDataSetChanged();
+                });
             });
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();

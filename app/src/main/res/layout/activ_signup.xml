@@ -15,7 +15,7 @@
         android:layout_height="168dp"
         android:layout_gravity="center"
         android:layout_marginTop="56dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/icon"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
