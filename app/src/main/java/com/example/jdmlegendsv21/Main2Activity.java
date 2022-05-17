@@ -20,6 +20,7 @@ import com.example.jdmlegendsv21.ui.save.SaveFragment;
 import com.example.jdmlegendsv21.ui.slideshow.SearchFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -38,7 +39,9 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        setSupportActionBar(binding.appBarMain2.toolbar);
+        binding.appBarMain2.buttonLogout.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
