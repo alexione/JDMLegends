@@ -73,9 +73,9 @@
                 android:id="@+id/text_car_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
                 android:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/text6"
                 app:layout_constraintTop_toBottomOf="@+id/text_car_bodytype" />
@@ -95,9 +95,8 @@
                 android:id="@+id/text6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
                 android:text="Year:"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text3" />

@@ -62,6 +62,7 @@
         android:id="@+id/RegisterHere"
         android:layout_width="117dp"
         android:layout_height="30dp"
+        android:layout_marginEnd="56dp"
         android:layout_marginBottom="96dp"
         android:text="@string/register_here"
         android:textColor="@color/teal_700"
