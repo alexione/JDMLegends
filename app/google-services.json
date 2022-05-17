@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1062147286332",
+    "project_id": "jdmlegendsv2-4308f",
+    "storage_bucket": "jdmlegendsv2-4308f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062147286332:android:591f58d308595d0c5b2a39",
+        "android_client_info": {
+          "package_name": "com.example.jdmlegendsv21"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062147286332-6pkvgml9mio9e8u3p31gs04dvbkqgr79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnlY3C0TTgQYb8UVHFMOcAEUq7Yq-rbWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062147286332-6pkvgml9mio9e8u3p31gs04dvbkqgr79.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
